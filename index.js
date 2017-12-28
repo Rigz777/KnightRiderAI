@@ -1,13 +1,12 @@
 const APIAI_TOKEN = process.env.APIAI_TOKEN;
 const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
-
 const express = require('express');
 const app = express();
 
 app.use(express.static(__dirname + '/views')); // html
 app.use(express.static(__dirname + '/public')); // js, css, images
 
-const server = app.listen(3000); //instantiate server
+const server = app.listen(process.env.PORT || 3000); //instantiate server
 app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
